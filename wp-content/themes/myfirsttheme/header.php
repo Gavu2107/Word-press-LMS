@@ -7,14 +7,30 @@
 </head>
 <body <?php body_class(); ?>>
 
-<header>
-  <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-  <p><?php bloginfo('description'); ?></p>
+<header id="site-header" role="banner">
+  <div class="container">
+    <div class="site-branding">
+      <?php if (has_custom_logo()) : ?>
+        <?php the_custom_logo(); ?>
+      <?php else : ?>
+        <h1 class="site-title">
+          <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+            <?php bloginfo('name'); ?>
+          </a>
+        </h1>
+        <p class="site-description"><?php bloginfo('description'); ?></p>
+      <?php endif; ?>
+    </div><!-- .site-branding -->
 
-  <?php
-    wp_nav_menu([
-      'theme_location' => 'main-menu',
-      'container' => 'nav'
-    ]);
-  ?>
+    <nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e('Main Menu', 'textdomain'); ?>">
+      <?php
+        wp_nav_menu([
+          'theme_location' => 'main-menu',
+          'menu_class'     => 'menu',
+          'container'      => false,
+          'fallback_cb'    => false
+        ]);
+      ?>
+    </nav><!-- #site-navigation -->
+  </div><!-- .container -->
 </header>
