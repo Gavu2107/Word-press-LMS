@@ -22,7 +22,7 @@
       <div class="footer-social">
         <a href="#" target="_blank" rel="noopener">Facebook</a> |
         <a href="#" target="_blank" rel="noopener">Twitter</a> |
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
+    
       </div>
     </div>
   </div>
